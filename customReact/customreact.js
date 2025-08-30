@@ -3,14 +3,26 @@
 
 
 //injecting reactElement into main container in the html file 
-customRender(reactElement, mainContainer) 
+function customRender(reactElement, container) 
 {
     //.type property tells React "what to render"—either a DOM node type or a React component.
+
+    /*
     const domElement = document.createElement(reactElement.type)
     domElement.innerHTML = reactElement.children
     domElement.setAttribute('href', reactElement.props.href)
     domElement.setAttribute('target', reactElement.props.target)
-    mainContainer.appendChild(domElement); 
+    mainContainer.appendChild(domElement); */
+
+    const domElement = document.createElement(reactElement.type);
+    domElement.innerHTML = reactElement.children; 
+    for (const prop in reactElement.props) {
+        if (prop === 'children') continue; 
+        domElement.setAttribute(prop, reactElement.props[prop])
+    }
+    container.appendChild(domElement); 
+
+
 }
 
 const reactElement = {
@@ -23,3 +35,5 @@ const reactElement = {
 }; 
 
 const mainContainer = document.querySelector('#root'); 
+
+customRender(reactElement, mainContainer); 
