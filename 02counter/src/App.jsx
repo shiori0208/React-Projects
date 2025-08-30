@@ -11,13 +11,10 @@ function App() {
 
   const addValue = () => {
     setCounter((prevCount) => prevCount + 1)
-    setCounter((prevCount) => prevCount + 1)
-    setCounter((prevCount) => prevCount + 1)
-    setCounter((prevCount) => prevCount + 1)
   }; 
 
   const minusValue = () => {
-    setCounter(counter - 1)
+   setCounter((prevCount) => prevCount - 1)
   }; 
 
   //called variable injection
