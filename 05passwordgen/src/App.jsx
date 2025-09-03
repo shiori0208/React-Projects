@@ -27,9 +27,15 @@ function App() {
   }, [length, numberAllowed, charAllowed]); 
 
 
+  const copyPasswordToClipboard = () => {
+    window.navigator.clipboard.writeText(password)
+  }
+
+
 useEffect(() => {
   generatePassword()
 }, [length, numberAllowed, charAllowed])
+
 
 
   return (
@@ -39,7 +45,10 @@ useEffect(() => {
       </h2>
       <div className='flex shadow rounded-lg overflow-hidden mb-4'>
         <input type="text" value={password} className='outline-none w-full py-1 px-3 bg-amber-50' placeholder='Password' readOnly />
-        <button className='outline-none bg-pink-800 text-white px-3 py-0.5 shrink-0'>Copy</button>
+
+        <button onClick={copyPasswordToClipboard}
+         className='outline-none bg-pink-800 text-white px-3 py-0.5 shrink-0 hover:bg-pink-200 hover:text-black'>Copy</button>
+
       </div>
       <div className='flrx text-sm gap-x-2'>
       <div className='flex items-center gap-x-1'>
