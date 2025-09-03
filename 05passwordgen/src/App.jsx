@@ -20,7 +20,18 @@ function App() {
       </div>
       <div className='flrx text-sm gap-x-2'>
       <div className='flex items-center gap-x-1'>
-          <input type="range" min={6} max={20} value={length} name="" id="" className='cursor-pointer' onChange={(e) => setLength(e.target.value)} />
+
+        <label htmlFor="length"> Len: {length}</label>
+         <input type="range" min={6} max={20} value={length} name="" id="" className='cursor-pointer' onChange={(e) => setLength(e.target.value)} />
+
+        <label htmlFor="number"> Numbers </label>
+         <input type="checkbox" name="" id="" defaultChecked={numberAllowed} onChange={() => {
+          setNumberAllowed((prev) => !prev) }}/>
+
+          <label htmlFor="number"> Characters </label>
+         <input type="checkbox" name="" id="" defaultChecked={charAllowed} onChange={() => {
+          setCharAllowed((prev) => !prev) }}/>
+          
       </div>
       </div>
     </div>
