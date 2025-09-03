@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -25,6 +25,12 @@ function App() {
     setPassword(pass); 
 
   }, [length, numberAllowed, charAllowed]); 
+
+
+useEffect(() => {
+  generatePassword()
+}, [length, numberAllowed, charAllowed])
+
 
   return (
     <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-violet-300 text-black'>
