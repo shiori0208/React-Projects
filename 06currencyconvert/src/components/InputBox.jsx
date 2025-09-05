@@ -16,9 +16,9 @@ function InputBox({
 
         <div className='w-1-2'>
 
-            <label className='text-black mb-2 inline-block'> {label}</label>
+            <label htmlFor="currency" className='text-black mb-2 inline-block'> {label}</label>
 
-            <input type="number" className='outline-none w-full bg-transparent py-1.5' 
+            <input id="currency" type="number" className='outline-none w-full bg-transparent py-1.5' 
             placeholder='0'
             disabled={amountDisabled}
             value={amount}
