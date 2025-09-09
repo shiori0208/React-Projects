@@ -5,11 +5,18 @@ import './App.css'
 import { ToDoProvider } from './contexts/ToDoContexts'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodos] = useState([])
+  const addToDo = (todo) => {
+    setTodos((prev) => [ {id: Date.now(), ...todo}, ...prev]) 
+  }
+
+
 
   return (
-    <ToDoProvider>
+    <ToDoProvider value={{todos, addToDo, updateToDo, deleteToDo, toggleComplete}}>
+
      <h1 className='text-3xl font-bold underline bg-amber-300'>OOF</h1>
+
     </ToDoProvider>
   )
 }
