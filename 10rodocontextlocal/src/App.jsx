@@ -6,10 +6,21 @@ import { ToDoProvider } from './contexts/ToDoContexts'
 
 function App() {
   const [todos, setTodos] = useState([])
+
   const addToDo = (todo) => {
     setTodos((prev) => [ {id: Date.now(), ...todo}, ...prev]) 
+  } 
+
+  // ... The spread operator can combine properties from multiple objects or update fields when making a new object.
+  //... For arrays: It "spreads" array items into new arrays.
+
+  const updateToDo = (id, todo) => {
+    setTodos((prev) => prev.map((prevTodo) => (prevTodo.id)))
   }
 
+  const deleteToDo = (id) => {
+    setTodos(prev => prev.filter((todo) => todo.id !== id))
+  }
 
 
   return (
